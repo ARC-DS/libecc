@@ -1,0 +1,41 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "default",
+            "hidden": true,
+            "displayName": "Default configuration",
+            "generator": "Ninja",
+            "binaryDir": "build/${presetName}"
+        },
+        {
+            "name": "win",
+            "inherits": "default",
+            "displayName": "Windows configuration",
+            "description": "Windows build using Ninja generator"
+        },
+        {
+            "name": "debug",
+            "inherits": "default",
+            "description": "WIZnet debug build using Ninja generator",
+            "toolchainFile": "cmake/toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "release",
+            "inherits": "default",
+            "description": "WIZnet release build using Ninja generator",
+            "toolchainFile": "cmake/toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ]
+}
